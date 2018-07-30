@@ -1,0 +1,10 @@
+# .gitignore file
+*.retry
+.idea/
+terraform
+terraform.tfstate
+terraform.tfstate.backup
+.terraform/
+*.zip
+*-console.log
+.vagrant
