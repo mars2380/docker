@@ -2,8 +2,8 @@
 *.retry
 .idea/
 terraform
-terraform.tfstate
-terraform.tfstate.backup
+### terraform.tfstate
+### terraform.tfstate.backup
 .terraform/
 *.zip
 *-console.log
