@@ -28,5 +28,13 @@
 #- name: Set user-defined configuration options
 #  template: src=jenkins.j2
 #            dest=/etc/default/jenkins
+
+- name: Remove Jenkins password
+  lineinfile:
+    path: /var/lib/jenkins/config.xml
+    regexp: '<useSecurity>true</useSecurity>'
+    line: '<useSecurity>false</useSecurity>'
+    state: present
+
   notify:
     - Restart Jenkins
