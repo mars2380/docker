@@ -1,5 +1,5 @@
 resource "aws_security_group" "default" {
-  name        = "rancher"
+  name        = "Jenkins"
   description = "Used in the terraform"
 
   # SSH access from anywhere

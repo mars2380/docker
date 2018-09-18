@@ -26,8 +26,8 @@ resource "aws_instance" "EC2" {
     user = "ubuntu"
   }
 
-  key_name = "Terraform_Key"
-//  key_name = "ua10"
+//  key_name = "Terraform_Key"
+  key_name = "ua12"
 
 
   root_block_device {
@@ -36,6 +36,6 @@ resource "aws_instance" "EC2" {
   }
 
   tags {
-    Name = "Rancher"
+    Name = "Jenkins"
   }
 }
