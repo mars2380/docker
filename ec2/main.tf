@@ -50,6 +50,6 @@ resource "aws_instance" "EC2" {
   }*/
 
   provisioner "local-exec" {
-    command = "ansible-playbook -i ansible-jenkins/hosts ansible-jenkins/playbook.yml -e 'ansible_python_interpreter=/usr/bin/python3'"
+    command = "ansible-playbook -i ansible-jenkins/hosts ansible-jenkins/playbook.yml -e 'ansible_python_interpreter=/usr/bin/python3' --private-key=~/ua12.pem"
   }
 }
