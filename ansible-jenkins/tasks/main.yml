@@ -1,0 +1,17 @@
+---
+- name: Configure the Jenkins APT key
+  apt_key: url=http://pkg.jenkins.io/debian/jenkins.io.key
+           state=present
+
+- name: Configure the Jenkins APT repositories
+  apt_repository: repo="deb http://pkg.jenkins-ci.org/debian binary/"
+                  state=present
+
+- name: Install Jenkins
+  apt: pkg=jenkins state=present
+
+#- name: Set user-defined configuration options
+#  template: src=jenkins.j2
+#            dest=/etc/default/jenkins
+  notify:
+    - Restart Jenkins

@@ -24,6 +24,7 @@ resource "aws_instance" "EC2" {
 
   connection {
     user = "ubuntu"
+    timeout = "1m"
   }
 
 //  key_name = "Terraform_Key"
@@ -37,5 +38,18 @@ resource "aws_instance" "EC2" {
 
   tags {
     Name = "Jenkins"
+  }
+
+/*  provisioner "remote-exec" {
+    inline = [
+      "wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -",
+      "sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'",
+      "sudo apt-get update",
+      "sudo apt-get install jenkins"
+    ]
+  }*/
+
+  provisioner "local-exec" {
+    command = "ansible-playbook -i ansible-jenkins/hosts ansible-jenkins/playbook.yml -e 'ansible_python_interpreter=/usr/bin/python3'"
   }
 }
