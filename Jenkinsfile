@@ -22,14 +22,14 @@ pipeline {
             }
         }
 
-    // publish html
+        // publish html
         publishHTML ([
-        allowMissing: false,
-        alwaysLinkToLastBuild: false,
-        keepAll: true,
-        reportDir: ‘coverage’,
-        reportFiles: ‘index.html’,
-        reportName: “RCov Report”
+            allowMissing: false,
+            alwaysLinkToLastBuild: false,
+            keepAll: true,
+            reportDir: ‘coverage’,
+            reportFiles: ‘index.html’,
+            reportName: “RCov Report”
         ])
     }
 }
