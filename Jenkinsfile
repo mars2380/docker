@@ -8,6 +8,10 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+
+                // Checkout
+                checkout scm
+
                 echo 'Building'
 
                 // publish html
