@@ -36,5 +36,12 @@
     line: '<useSecurity>false</useSecurity>'
     state: present
 
+# Testing plug installation to avoid any manual change on Jenkins
+#- name: Install Jenkins plugin
+#  jenkins_plugin:
+#    name: "{{ item }}"
+#    with_items:
+#      -
+
   notify:
     - Restart Jenkins
