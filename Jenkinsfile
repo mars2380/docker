@@ -11,7 +11,7 @@ pipeline {
                 echo 'Building'
 
                 // publish html
-                publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'coverage', reportFiles: 'index.html', reportName: 'RCov Report', reportTitles: ''])
+                publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: '.', reportFiles: 'index.html', reportName: 'RCov Report', reportTitles: ''])
             }
         }
         stage('Test') {
