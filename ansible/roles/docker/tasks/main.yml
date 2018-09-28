@@ -1,0 +1,33 @@
+---
+- name: determine if docker is installed
+  command: which docker
+  register: docker_installed
+  ignore_errors: true
+  changed_when: false
+  no_log: True
+
+- name: install docker
+  shell: curl https://releases.rancher.com/install-docker/{{ docker_version }}.sh | sh
+  warn: False
+  when: docker_installed is failed
+
+- name: Install pip3
+  apt:
+    name: python3-pip
+
+- name: Install pip
+  apt:
+    name: python-pip
+
+- name: Install openshift
+  pip:
+    name: openshift
+    state: present
+
+- name: Install docker-py
+  pip:
+    name: docker-py
+    state: present
+
+- name: make sure docker is running
+  service: name=docker state=started enabled=true

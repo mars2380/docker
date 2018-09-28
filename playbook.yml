@@ -7,4 +7,5 @@
       changed_when: False
 
   roles:
-     - { role: "ansible-jenkins" }
+     - { role: "jenkins" }
+     - { role: "docker" }
