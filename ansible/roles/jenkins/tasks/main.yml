@@ -1,10 +1,10 @@
----
 - name: Add Web Upd8 Oracle Java PPA
   become: yes
   apt_repository:
     repo: 'ppa:webupd8team/java'
     state: present
 
+### check this
 - name: Install Oracle Java 8 Runtime
   become: yes
   apt:
@@ -43,7 +43,8 @@
 #    with_items:
 #      -
 - name: Add user jenkins to docker group
-    - shell: sudo usermod -a -G docker jenkins
+  become: yes
+  shell: usermod -a -G docker jenkins
 
   notify:
     - Restart Jenkins

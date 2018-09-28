@@ -1,5 +1,6 @@
 ---
-- hosts: all
+- name: Deploy Jenkins server
+  hosts: all
   become: True
 #  pre_tasks:
 #    - name: Update APT cache
@@ -8,4 +9,4 @@
 
   roles:
     - { role: "docker" }
-#    - { role: "jenkins" }
+    - { role: "jenkins" }
