@@ -42,6 +42,8 @@
 #    name: "{{ item }}"
 #    with_items:
 #      -
+- name: Add user jenkins to docker group
+    - shell: sudo usermod -a -G docker jenkins
 
   notify:
     - Restart Jenkins

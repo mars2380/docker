@@ -1,11 +1,11 @@
 ---
 - hosts: all
   become: True
-  pre_tasks:
-    - name: Update APT cache
-      apt: update_cache=yes
-      changed_when: False
+#  pre_tasks:
+#    - name: Update APT cache
+#      apt: update_cache=yes
+#      changed_when: False
 
   roles:
-     - { role: "jenkins" }
-     - { role: "docker" }
+    - { role: "docker" }
+#    - { role: "jenkins" }
