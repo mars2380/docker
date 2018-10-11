@@ -33,6 +33,14 @@ pipeline {
             steps {
                 echo 'Deploying'
             }
+
+        stage('Front-end') {
+            agent {
+                docker { image 'node:7-alpine' }
+            }
+            steps {
+                sh 'node --version'
+            }
         }
     }
 }
